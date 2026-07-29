@@ -1,0 +1,5 @@
+# env
+*.cfg
+Scripts/
+Lib/
+Include/
