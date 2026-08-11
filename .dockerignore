@@ -1,7 +1,11 @@
+.git
+.gitignore
+.env
+clips/
+*.mp4
+
 __pycache__/
 *.py[cod]
-
-# venv
 .venv/
 venv/
 Scripts/
@@ -9,9 +13,5 @@ Lib/
 Include/
 pyvenv.cfg
 
-# gravacoes
-clips/
-*.mp4
-
-# segredos
-.env
+Dockerfile
+docker-compose.yaml

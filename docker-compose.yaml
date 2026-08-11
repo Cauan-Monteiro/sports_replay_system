@@ -1,0 +1,23 @@
+services:
+  replay:
+    build: .
+    container_name: replay-system
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./clips:/app/clips
+    env_file:
+      - .env
+    environment:
+      HEADLESS: "1"
+      CLIPS_DIR: /app/clips
+      RTSP_URL: ${RTSP_URL}
+      FPS: ${FPS:-30}
+      BUFFER_SIZE: ${BUFFER_SIZE:-300}
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
